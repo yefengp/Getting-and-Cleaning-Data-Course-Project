@@ -26,7 +26,8 @@ ytest <- read.table("./data/UCI HAR Dataset/test/y_test.txt")
 TrainingTest <- rbind(training, test)
 names(TrainingTest) <- Vnames[, 2]
 
-VnamesMeanStd <- Vnames[grepl(nam[1], Vnames[, 2]) & !grepl(nam[3], Vnames[, 2]) | grepl(nam[2], Vnames[, 2]), 2]
+names <- c("mean()", "std()", "meanFreq()")
+VnamesMeanStd <- Vnames[grepl(names[1], Vnames[, 2]) & !grepl(names[3], Vnames[, 2]) | grepl(names[2], Vnames[, 2]), 2]
 VnamesMeanStd <- as.character(VnamesMeanStd)
 
 TrainingTestMeanStd <- TrainingTest[, VnamesMeanStd]
